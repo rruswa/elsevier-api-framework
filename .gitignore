@@ -3,3 +3,6 @@
 *.iws
 *.ipr
 .idea/
+
+# Maven
+target/
