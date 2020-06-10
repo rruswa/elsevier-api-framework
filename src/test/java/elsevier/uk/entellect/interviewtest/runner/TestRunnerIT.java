@@ -7,7 +7,7 @@ import org.testng.annotations.DataProvider;
 @CucumberOptions(
         features = "src/test/resources/features/",
         glue = "elsevier.uk.entellect.interviewtest.steps",
-        plugin = "json:target/results/json/results.json",
+        plugin = "io.qameta.allure.cucumber4jvm.AllureCucumber4Jvm",
         strict = true
 )
 public class TestRunnerIT extends AbstractTestNGCucumberTests {
