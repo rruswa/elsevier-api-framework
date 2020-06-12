@@ -28,7 +28,6 @@ public class CommonSteps implements En {
             bitlinks.links().forEach(bitlink -> {
                 System.out.println("Opening bitlink: " + bitlink.link());
                 driver.get(bitlink.link());
-
             });
             driver.close();
         });
