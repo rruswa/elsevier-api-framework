@@ -9,6 +9,9 @@ import org.apache.http.HttpStatus;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
+import java.time.Duration;
+import java.time.temporal.ChronoUnit;
+
 public class CommonSteps implements En {
 
     public CommonSteps(World world) {
@@ -30,6 +33,8 @@ public class CommonSteps implements En {
                 driver.get(bitlink.link());
             });
             driver.close();
+            // Added wait due to race condition as the bitlinks being opened takes time to be registered when the service is queried
+            Thread.sleep(Duration.of(4, ChronoUnit.SECONDS).toMillis());
         });
     }
 
