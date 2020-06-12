@@ -21,8 +21,6 @@ public class CommonSteps implements En {
         Then("^the opened bitlink is returned$", () -> {
             BitlinksModel bitlinksModel = world.response().statusCode(HttpStatus.SC_OK).extract().as(BitlinksModel.class);
             Assertions.assertThat(bitlinksModel.links()).containsAll(world.get("bitlinks", BitlinksModel.class).orElseThrow().links());
-            System.out.println("STOP!");
-            System.out.println(world);
         });
         And("^a bitlink has been opened$", () -> {
             BitlinksModel bitlinks = world.get("bitlinks", BitlinksModel.class).orElseThrow(IllegalStateException::new);
