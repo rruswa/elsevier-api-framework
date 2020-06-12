@@ -11,6 +11,7 @@ API testing framework for Elsevier technical task completion.
 ### Configuration
 
 **elsevier.bitly.username**: This must be set to the value of the bitly username.
+
 **elsevier.bitly.password**: This must be set to the password for the bitly username provided.
 
 ## How to
