@@ -26,6 +26,7 @@
         <maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
         <failsafe.version>3.0.0-M4</failsafe.version>
         <allure.version>2.10.0</allure.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
 
         <!--Plugin Config-->
         <allure.html.report.output>${project.basedir}/target/results/allure/html</allure.html.report.output>
@@ -71,8 +72,6 @@
             <groupId>com.elsevier</groupId>
             <artifactId>elsevier-platform-services-library</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/jars/elsevier-platform-services-library-1.0-SNAPSHOT.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -148,6 +147,29 @@
                             <resultsDirectory>${allure.json.results.output}</resultsDirectory>
                             <reportDirectory>${allure.html.report.output}</reportDirectory>
                         </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>${maven-install-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>install-external</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${project.basedir}/src/jars/elsevier-platform-services-library-1.0-SNAPSHOT.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.elsevier</groupId>
+                            <artifactId>elsevier-platform-services-library</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
                     </execution>
                 </executions>
             </plugin>
