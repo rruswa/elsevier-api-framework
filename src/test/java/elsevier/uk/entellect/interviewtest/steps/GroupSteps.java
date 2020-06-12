@@ -20,7 +20,7 @@ public class GroupSteps implements En {
             // Retrieves all available groups and stores the first one as part of world.
             world.group(GroupAPI.groups().groups().get(0));
         });
-        When("a {word} request is made to {string}", (String method, String endpoint) -> {
+        When("a {word} request is made to {string}", (String method, String endpoint ) -> {
             ValidatableResponse response = given()
                         .spec(BaseAPI.getBaseRequestSpecBuilder().build())
                     .when()
