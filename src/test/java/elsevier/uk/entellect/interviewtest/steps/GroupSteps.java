@@ -44,6 +44,18 @@ public class GroupSteps implements En {
                     .extracting("message", "resource", "description")
                     .containsOnly(table.asMaps().get(0).values().toArray(new String[0]));
         });
+        When("a {word} request is made to {string} when being sorted by {word} for {int}", (String method, String endpoint, String unit, Integer units) -> {
+            ValidatableResponse response = given()
+                        .spec(BaseAPI.getBaseRequestSpecBuilder().build())
+                        .queryParam("unit", unit)
+                    .queryParam("units", units)
+                    .when()
+                        .request(method, endpoint, world.group().guid())
+                    .then()
+                        .spec(BaseAPI.getBaseResponseSpecBuilder().build());
+
+            world.response(response);
+        });
     }
 
 }

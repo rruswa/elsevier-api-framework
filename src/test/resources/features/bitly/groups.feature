@@ -12,3 +12,17 @@ Feature: Groups
     And the error message contains the following properties
       |  message  | resource | description                                          |
       | FORBIDDEN | groups   | You are currently forbidden to access this resource. |
+
+  Scenario Outline: Retrieve Sorted Bitlinks for Group
+    Given there are bitlinks available
+      And a bitlink has been opened
+    When a GET request is made to 'v4/groups/{group_guid}/bitlinks/clicks' when being sorted by <unit> for <units>
+    Then the opened bitlink is returned
+
+    Examples:
+      | unit   | units |
+      | minute | 3     |
+      | hour   | 1     |
+      | day    | 1     |
+      | week   | 1     |
+      | month  | 1     |
