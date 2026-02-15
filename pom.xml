@@ -15,7 +15,7 @@
 
         <!-- Dependencies -->
         <cucumber.version>4.8.1</cucumber.version>
-        <assertj.version>3.16.1</assertj.version>
+        <assertj.version>3.27.7</assertj.version>
         <aspectj.version>1.8.14</aspectj.version>
         <lombok.version>1.18.12</lombok.version>
         <rest-assured.version>4.3.0</rest-assured.version>
